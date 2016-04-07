@@ -6,32 +6,32 @@
 ## Installation Guide:
 
 ## Creating the project
-###- Clone the project
+<b>- Clone the project</b>
 ```bash
 git clone git@github.com:akaspi/webpack-on-heroku.git <your-folder>
 cd <your-folder>
 npm i
 ```
-###- Clean .git
+<b>- Clean .git</b>
 ```bash
 rm -rf .git
 ```
-###- Initialize .git and push to new repository ([Link](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/))
+<b>- Initialize .git and push to new repository</b> ([Link](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/))
 
-### Sync with Heroku
-###- Login to Heroku:
+## Sync with Heroku
+<b>- Login to Heroku:</b>
 ```bash
 heroku login
 ```
-###- Create an Heroku application:
+<b>- Create an Heroku application:</b>
 ```bash
 heroku create
 ```
-###- Set 'production' environment variable:
+<b>- Set 'production' environment variable:</b>
 ```bash
 heroku config:set NODE_ENV=production
 ```
-###- Deploy the app:
+<b>- Deploy the app:</b>
 ```bash
 git push heroku master
 ```
