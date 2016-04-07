@@ -1,31 +1,41 @@
-## Prerequisites:
+# Prerequisites:
 - [Heroku](https://www.heroku.com/) user.
 - [Heroku Toolbelt](https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up) installed.
+- A [clean remote repository](https://github.com/new).
 
 ## Installation Guide:
-- Fork / Clone the project
+
+### Creating the project
+1. Clone the project
 ```bash
-git clone git@github.com:akaspi/webpack-on-heroku.git
-cd webpack-on-heroku
+git clone git@github.com:akaspi/webpack-on-heroku.git <your-folder>
+cd <your-folder>
 npm i
 ```
 
-- Login to Heroku:
+2. Clean .git
+```bash
+rm -rf .git
+```
+
+3. Initialize .git and push to new repository ([Link](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/))
+
+### Sync with Heroku
+4. Login to Heroku:
 ```bash
 heroku login
 ```
 
-- Create an Heroku application:
+5. Create an Heroku application:
 ```bash
 heroku create
 ```
-
-- Set 'production' environment variable:
+6. Set 'production' environment variable:
 ```bash
 heroku config:set NODE_ENV=production
 ```
 
-- Deploy the app:
+7. Deploy the app:
 ```bash
 git push heroku master
 ```
