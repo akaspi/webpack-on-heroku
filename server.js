@@ -1,5 +1,3 @@
-/* eslint no-undef: "off", no-console: "off" */
-
 var config = require('./config.json');
 var express = require('express');
 var path = require('path');
