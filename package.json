@@ -1,11 +1,11 @@
 {
   "name": "webpack-on-heroku",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "webpack-on-heroku",
   "main": "server.js",
   "scripts": {
-    "postinstall": "webpack --config ./webpack-prod.config.js --progress --colors",
-    "start": "node server.js",
+    "start": "webpack && node servers/prodServer.js",
+    "dev": "node servers/devServer.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,14 +19,7 @@
     "url": "https://github.com/akaspi/webpack-on-heroku/issues"
   },
   "homepage": "https://github.com/akaspi/webpack-on-heroku#readme",
-  "babel": {
-    "presets": [
-      "es2015",
-      "react"
-    ]
-  },
   "devDependencies": {
-    "react-hot-loader": "^1.3.0",
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
@@ -36,13 +29,14 @@
     "babel-preset-react": "^6.5.0",
     "babel-register": "^6.7.2",
     "css-loader": "^0.23.1",
-    "express": "^4.13.4",
+    "express": "^4.14.0",
+    "lodash": "^4.13.1",
     "node-sass": "^3.4.2",
     "react": "^0.14.8",
     "react-dom": "^0.14.8",
     "resolve-url-loader": "^1.4.3",
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
-    "webpack": "^1.12.14"
+    "webpack": "^1.13.1"
   }
 }

@@ -1,32 +1,29 @@
-'use strict';
-
-var webpack = require('webpack');
-var path = require('path');
-var config = require('./config.json');
+const webpack = require('webpack');
+const path = require('path');
+const config = require('./config.json');
 
 module.exports = {
-    devtool: 'eval',
-    entry: [
-        'webpack-dev-server/client?http://localhost:' + config.devPort,
-        'webpack/hot/only-dev-server',
-        './src/index.jsx'
-    ],
+    cache: true,
+    devtool: 'source-map',
+    entry: {
+        app: ['./src/index.jsx'],
+        vendors: ['lodash', 'react', 'react-dom']
+    },
     output: {
-        path: path.join(path.resolve(path.dirname()), config.publicFolder),
-        publicPath: '/' + config.publicFolder + '/',
-        filename: 'bundle.js'
+        filename: '[name].bundle.js',
+        path: path.join(__dirname, config.publicFolder),
+        publicPath: '/' + config.publicFolder +'/'
     },
     module: {
         loaders: [
-            { test: /\.jsx$/, exclude: /node_modules/, loaders: ['react-hot', 'babel'] },
-            { test: /\.scss$/, exclude: /node_modules/, loaders: ['style', 'css', 'resolve-url', 'sass'] }
+            { test: /\.jsx$/, exclude: /node_modules/, loaders: ['babel'] },
+            { test: /\.scss/, exclude: /node_modules/, loaders: ['style', 'css', 'sass'] }
         ]
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
-    ],
-    resolve: {
-        extensions: ['', '.js', '.jsx']
-    }
+        new webpack.NoErrorsPlugin(),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendors'
+        })
+    ]
 };
