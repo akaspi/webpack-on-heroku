@@ -1,7 +1,8 @@
 const webpack = require('webpack');
 
 module.exports = {
-    cache: true,    
+    cache: true,
+    devtool: 'eval',   
     entry: [
       'webpack-dev-server/client?http://localhost:8080',
       'webpack/hot/only-dev-server',
