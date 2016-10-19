@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 
 module.exports = {
-    cache: true,    
+    cache: true,
     entry: './src/index.js',
     output: {
       path: __dirname + '/dist',
@@ -12,7 +12,7 @@ module.exports = {
         loaders: [
             { test: /\.js$/, exclude: /node_modules/, loaders: ['babel'] },
             { test: /\.scss/, exclude: /node_modules/, loaders: ['style', 'css', 'sass'] },
-            { test: /\.rt/, exclude: /node_modules/, loaders: ['react-templates-loader'] }
+            { test: /\.rt/, exclude: /node_modules/, loaders: ['react-templates-loader?modules=amd'] }
         ]
     }
 };
